@@ -1,0 +1,5 @@
+111590024,myakimova,Mirela Yakimova,Project Manager,2500.50,true
+111580018,piliev,Plamen Iliev,Developer,1337.99,false,
+111570033,phristov,Petar Hristov,Developer,1337.99,false
+111560059,aandonov,Antoan Andonov,Developer,1337.99,false
+111550041,giliev,Georgi Iliev,Developer,1337.99,false
