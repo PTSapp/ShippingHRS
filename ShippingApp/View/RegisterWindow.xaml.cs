@@ -3,19 +3,13 @@ using System.IO;
 using System.Text;
 using ShippingApp.Model;
 using ShippingApp.Utilites;
-using ShippingApp.View.Interfaces;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 
 namespace ShippingApp.View
 {
-    public partial class RegisterWindow : MetroWindow, IWindowState
+    public partial class RegisterWindow : MetroWindow
     {
-        public bool VisibleForAll
-        {
-            get { return false; }
-        }
-
         public RegisterWindow()
         {
             InitializeComponent();

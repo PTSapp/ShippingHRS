@@ -1,17 +1,11 @@
 ﻿using ShippingApp.Utilites;
-using ShippingApp.View.Interfaces;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 
 namespace ShippingApp.View
 {
-    public partial class InputBoxWindow : MetroWindow,IWindowState
+    public partial class InputBoxWindow : MetroWindow
     {
-        public bool VisibleForAll
-        {
-            get { return true; }
-        }
-
         public string inputCode;
 
         public InputBoxWindow()

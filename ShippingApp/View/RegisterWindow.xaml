@@ -39,7 +39,7 @@
             <StackPanel Orientation="Horizontal">
                 <Label Style="{StaticResource LabelStyle}" Content="Администратор" FontSize="28" Height="45" Margin="0,10,0,0"/>
                 <CheckBox Height="45" BorderBrush="Black" BorderThickness="2" Margin="0,10,0,0" Name="chkIsAdmin"/>
-                <Button Style="{StaticResource ButtonStyle}" IsDefault="True" Content="ВЛЕЗ" Height="50" Width="200" FontSize="20" Margin="50,10,0,0" Name="submitButton" Click="submitButton_Click"/>
+                <Button Style="{StaticResource ButtonStyle}" IsDefault="True" Content="РЕГИСТРИРАНЕ" Height="50" Width="200" FontSize="20" Margin="50,10,0,0" Name="submitButton" Click="submitButton_Click"/>
             </StackPanel>
 
         </StackPanel>

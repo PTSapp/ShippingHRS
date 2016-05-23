@@ -1,18 +1,12 @@
 ﻿using System.Linq;
 using ShippingApp.Utilites;
-using ShippingApp.View.Interfaces;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 
 namespace ShippingApp.View
 {
-    public partial class LoginWindow : MetroWindow, IWindowState
+    public partial class LoginWindow : MetroWindow
     {
-        public bool VisibleForAll
-        {
-            get { return true; }
-        }
-
         public LoginWindow()
         {
             InitializeComponent();
@@ -26,19 +20,11 @@ namespace ShippingApp.View
                 await this.ShowMessageAsync("ГРЕШКА", "Невалидни номер/парола!");
                 return;
             }
-            /*
 
-            OPEN YOUR WINDOW HERE
+            HiringWindow hiringWindow = new HiringWindow();
+            hiringWindow.Show();
 
-            AnotherWindow anotherWindow = new AnotherWindow();
-
-            // if you only want to display the window and you won`t return to this method
-            anotherWindow.Show(); 
-
-            // if you want to return to this method AFTER your window has been closed
-            anotherWindow.ShowDialog(); 
-
-            */
+            this.Close();
         }
 
         private async void registerButton_Click(object sender, System.Windows.RoutedEventArgs e)

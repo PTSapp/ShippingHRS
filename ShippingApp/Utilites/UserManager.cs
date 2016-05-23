@@ -16,7 +16,13 @@ namespace ShippingApp.Utilites
 
         private static Random companyIdGenerator = new Random();
 
-        private static User currentlyLoggedUser;
+        private static User _currentlyLoggedUser;
+        public static User CurrentlyLoggedUser {
+            get
+            {
+                return _currentlyLoggedUser;
+            }
+        }
 
         private static List<User> userList;
 
@@ -73,7 +79,7 @@ namespace ShippingApp.Utilites
                 return false;
             }
 
-            currentlyLoggedUser = foundUser;
+            _currentlyLoggedUser = foundUser;
 
             return true;
         }
@@ -107,6 +113,5 @@ namespace ShippingApp.Utilites
 
             return generatedId;
         }
-
     }
 }
