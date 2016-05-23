@@ -1,7 +1,10 @@
-﻿using ShippingApp.Model;
+﻿using System;
 using System.IO;
-using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
+using System.Collections.Generic;
+using ShippingApp.View;
+using ShippingApp.Model;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 
@@ -9,13 +12,32 @@ namespace ShippingApp.Utilites
 {
     public static class UserManager
     {
-        private static List<User> userList;
+        public static readonly string adminCode = "0x0";
+
+        private static Random companyIdGenerator = new Random();
+
         private static User currentlyLoggedUser;
 
-        public static void LoadUsers()
+        private static List<User> userList;
+
+        public static IReadOnlyList<User> GetUsers()
         {
-            string employeesFilePath = PathFinder.FetchPathForResource("Employees");
+            return userList.AsReadOnly();
+        }
+
+        public async static void LoadUsers()
+        {
+            string employeesFilePath = PathFinder.FetchPathForResource("Employees.txt");
+            if (string.IsNullOrEmpty(employeesFilePath))
+            {
+                await (Application.Current.MainWindow as MetroWindow).ShowMessageAsync("ГРЕШКА", "Липсват данни за служителите!");
+                Application.Current.MainWindow.Close();
+                Environment.Exit(0);
+            }
+            
             string[] employeeRecords = File.ReadAllLines(employeesFilePath);
+
+            userList = new List<User>(employeeRecords.Length);
 
             double salaryParsed = 0.0d;
             bool hasAdminPrivilegesParsed = false;
@@ -42,10 +64,11 @@ namespace ShippingApp.Utilites
             }
         }
 
+
         public static bool Login(string username, string password)
         {
             User foundUser = userList.Where(u => u.CompanyCardUniqueId.Equals(username) && u.Password.Equals(password)).FirstOrDefault();
-            if(foundUser == null)
+            if (foundUser == null)
             {
                 return false;
             }
@@ -57,19 +80,32 @@ namespace ShippingApp.Utilites
 
         public static bool Register()
         {
-            // TODO: Finish this
-            User user = new User();
-            if (user == null)
+            int usersBefore = userList.Count;
+            RegisterWindow registerWindow = new RegisterWindow();
+            registerWindow.ShowDialog();
+
+            int usersAfter = userList.Count;
+            if (usersAfter > usersBefore)
             {
-                return false;
+                return true;
             }
 
-            return true;
+            return false;
         }
 
-        private static void ShowRegisterForm()
+        public static string GenerateCompanyId()
         {
-            // Open form here
+            string generatedId = string.Empty;
+            bool isDuplicate = false;
+
+            do
+            {
+                generatedId = companyIdGenerator.Next(1000000, 9999999).ToString();
+                isDuplicate = userList.Where(u => u.CompanyCardUniqueId.Equals(generatedId)).FirstOrDefault() != null;
+            }
+            while (isDuplicate);
+
+            return generatedId;
         }
 
     }

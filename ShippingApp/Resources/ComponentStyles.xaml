@@ -27,6 +27,19 @@
         <Setter Property="ShowGridLines" Value="False"/>
     </Style>
 
+    <!-- Generic text block(for page headers) style -->
+    <Style x:Key="TextBlockStyle" TargetType="{x:Type TextBlock}">
+        <!--<Setter Property="Margin" Value="10,0,0,0"/>-->
+        <Setter Property="Width" Value="400"/>
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="FontSize" Value="40"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontFamily" Value="Rockwell"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
+
     <!--  
             OPTIONAL STYLES
     COMMENT out if you dislike something
@@ -46,19 +59,6 @@
         <Setter Property="FontFamily" Value="Rockwell"/>
         <!--<Setter Property="VerticalAlignment" Value="Center"/>-->
         <!--<Setter Property="HorizontalAlignment" Value="Left"/>-->
-    </Style>
-
-    <!-- Generic text block(for page headers) style -->
-    <Style x:Key="TextBlockStyle" TargetType="{x:Type TextBlock}">
-        <!--<Setter Property="Margin" Value="10,0,0,0"/>-->
-        <Setter Property="Width" Value="250"/>
-        <Setter Property="Height" Value="50"/>
-        <Setter Property="FontSize" Value="40"/>
-        <Setter Property="FontWeight" Value="Bold"/>
-        <Setter Property="FontFamily" Value="Rockwell"/>
-        <Setter Property="TextAlignment" Value="Center"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="HorizontalAlignment" Value="Center"/>
     </Style>
 
     <!-- Generic image button(button with image instead of text content) style -->
@@ -135,8 +135,8 @@
     <Style x:Key="TextBoxStyle" TargetType="{x:Type TextBox}">
         <!--<Setter Property="HorizontalAlignment" Value="Center"/>-->
         <!--<Setter Property="VerticalAlignment" Value="Center"/>-->
-        <Setter Property="Height" Value="25"/>
-        <Setter Property="Width" Value="150"/>
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="Width" Value="500"/>
         <Setter Property="FontStyle" Value="Italic"/>
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="FontFamily" Value="Rockwell"/>
