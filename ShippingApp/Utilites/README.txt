@@ -1,1 +1,1 @@
-﻿This could be a place for all the classes you use to do something, which don`t fit in the definition for any other source folder.
+﻿This  could be a place for all the classes you use to do something, which don`t fit in the definition for any other source folder.
