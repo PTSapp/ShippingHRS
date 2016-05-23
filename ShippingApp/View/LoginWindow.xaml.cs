@@ -24,6 +24,7 @@ namespace ShippingApp.View
             if(!UserManager.Login(usernameBox.Text, passwordBox.Password))
             {
                 await this.ShowMessageAsync("ГРЕШКА", "Невалидни номер/парола!");
+                return;
             }
             /*
 
